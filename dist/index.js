@@ -91,9 +91,15 @@ class Controller {
     }
 }
 class GameController extends Controller {
+    set score(value) {
+        var _a;
+        location.hash = (_a = value === null || value === void 0 ? void 0 : value.toString()) !== null && _a !== void 0 ? _a : MINIMUM_SCORE.toString();
+    }
+    get score() {
+        return location.hash ? parseInt(location.hash.slice(1)) : null;
+    }
     constructor() {
         super();
-        this.score = null;
         this.answer = null;
         this.strCache = null;
         this.roundTimespan = 2000; // milliseconds

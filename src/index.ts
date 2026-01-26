@@ -107,7 +107,12 @@ class Controller {
 }
 
 class GameController extends Controller {
-  score: number | null = null;
+  set score(value: number | null) {
+    location.hash = value?.toString() ?? MINIMUM_SCORE.toString();
+  }
+  get score(): number | null {
+    return location.hash ? parseInt(location.hash.slice(1)) : null;
+  }
   answer: number | null = null;
   strCache: string | null = null;
 
