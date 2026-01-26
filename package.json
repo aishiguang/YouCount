@@ -1,0 +1,25 @@
+{
+  "name": "youcount",
+  "version": "1.0.0",
+  "description": "No, you can't",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc -w & http-server -c-1 ./ -P http://127.0.0.1:8080/index.html?",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aishiguang/YouCount.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aishiguang/YouCount/issues"
+  },
+  "homepage": "https://github.com/aishiguang/YouCount#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.9.3"
+  }
+}
