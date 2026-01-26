@@ -108,10 +108,11 @@ class Controller {
 
 class GameController extends Controller {
   set score(value: number | null) {
-    location.hash = value?.toString() ?? MINIMUM_SCORE.toString();
+    location.hash = value?.toString() ?? '';
   }
   get score(): number | null {
-    return location.hash ? parseInt(location.hash.slice(1)) : null;
+    const _score = parseInt(location.hash?.slice(1));
+    return isNaN(_score as number) ? MINIMUM_SCORE : _score;
   }
   answer: number | null = null;
   strCache: string | null = null;

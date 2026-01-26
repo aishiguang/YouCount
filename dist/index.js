@@ -93,10 +93,12 @@ class Controller {
 class GameController extends Controller {
     set score(value) {
         var _a;
-        location.hash = (_a = value === null || value === void 0 ? void 0 : value.toString()) !== null && _a !== void 0 ? _a : MINIMUM_SCORE.toString();
+        location.hash = (_a = value === null || value === void 0 ? void 0 : value.toString()) !== null && _a !== void 0 ? _a : '';
     }
     get score() {
-        return location.hash ? parseInt(location.hash.slice(1)) : null;
+        var _a;
+        const _score = parseInt((_a = location.hash) === null || _a === void 0 ? void 0 : _a.slice(1));
+        return isNaN(_score) ? MINIMUM_SCORE : _score;
     }
     constructor() {
         super();
