@@ -26,13 +26,14 @@ class Controller {
         this.canvas = document.createElement('canvas');
         this.context = this.canvas.getContext('2d');
         this.init();
+        new MobileController();
     }
     init() {
         var _a;
         this.canvas.height = this.height;
         this.canvas.width = this.width;
-        this.canvas.style.width = `${this.width}px`;
-        this.canvas.style.height = `${this.height}px`;
+        // this.canvas.style.width = `${this.width}px`;
+        // this.canvas.style.height = `${this.height}px`;
         this.context.font = `${this.glyphSize}px serif`;
         this.context.fillStyle = 'black';
         this.context.textBaseline = 'top';
@@ -188,6 +189,29 @@ class GameController extends Controller {
             '',
             'In much the same way, auto-regressive AI counts too.'
         ].join('\n'));
+    }
+}
+class MobileController {
+    constructor() {
+        if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            this.init();
+        }
+    }
+    init() {
+        var _a;
+        const softKeyboard = document.createElement('div');
+        softKeyboard.id = 'soft-keyboard';
+        (_a = document.getElementById('app')) === null || _a === void 0 ? void 0 : _a.appendChild(softKeyboard);
+        const keys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'Enter'];
+        for (let i of keys) {
+            const btn = document.createElement('button');
+            btn.textContent = i.toString();
+            btn.addEventListener('click', () => {
+                const event = new KeyboardEvent('keydown', { key: i.toString() });
+                document.body.dispatchEvent(event);
+            });
+            softKeyboard.appendChild(btn);
+        }
     }
 }
 class BulletinController {

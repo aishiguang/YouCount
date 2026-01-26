@@ -32,13 +32,14 @@ class Controller {
     this.canvas = document.createElement('canvas');
     this.context = this.canvas.getContext('2d') as CanvasRenderingContext2D;
     this.init();
+    new MobileController();
   }
 
   init(): void {
     this.canvas.height = this.height;
     this.canvas.width = this.width;
-    this.canvas.style.width = `${this.width}px`;
-    this.canvas.style.height = `${this.height}px`;
+    // this.canvas.style.width = `${this.width}px`;
+    // this.canvas.style.height = `${this.height}px`;
     
     this.context.font = `${this.glyphSize}px serif`;
     this.context.fillStyle = 'black';
@@ -220,6 +221,31 @@ class GameController extends Controller {
   }
 }
 
+class MobileController {
+
+  constructor() {
+    if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      this.init()
+    }
+  }
+  init(): void {
+    const softKeyboard = document.createElement('div');
+    softKeyboard.id = 'soft-keyboard';
+    document.getElementById('app')?.appendChild(softKeyboard);
+    const keys = ['0','1','2','3','4','5','6','7','8','9', 'Enter'];
+    for (let i of keys) {
+      const btn = document.createElement('button');
+      btn.textContent = i.toString();
+      btn.addEventListener('click', () => {
+        const event = new KeyboardEvent('keydown', { key: i.toString() });
+        document.body.dispatchEvent(event);
+      });
+      softKeyboard.appendChild(btn);
+    }
+
+
+  }
+}
 
 class BulletinController {
   wrapper: HTMLDivElement;
