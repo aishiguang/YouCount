@@ -1,0 +1,7 @@
+node_modules/
+.assetsignore
+.gitignore
+package.json
+package-lock.json
+tsconfig.json
+wrangler.jsonc
