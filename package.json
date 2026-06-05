@@ -6,7 +6,8 @@
   "scripts": {
     "start": "tsc -w & http-server -c-1 ./ -P http://218.212.7.123:8080/index.html?",
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "report":  "gen-report pathFeatureInput=./docs/features/game.feature pathTestsInput=./tests/game.test.ts"
   },
   "repository": {
     "type": "git",
