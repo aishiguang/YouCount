@@ -4,9 +4,9 @@
   "description": "No, you can't",
   "main": "index.js",
   "scripts": {
-    "start": "tsc -w & http-server -c-1 ./ -P http://127.0.0.1:8080/index.html?",
+    "start": "tsc -w & http-server -c-1 ./ -P http://218.212.7.123:8080/index.html?",
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,12 @@
   },
   "homepage": "https://github.com/aishiguang/YouCount#readme",
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "jest-bdd-generator": "^0.3.1",
+    "jest-environment-jsdom": "^29.7.0",
+    "ts-jest": "^29.4.11",
     "typescript": "^5.9.3",
     "wrangler": "^4.60.0"
   }

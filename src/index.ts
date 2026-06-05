@@ -17,7 +17,7 @@ function main(): void {
 /**
  * Controller class to manage the game.
  */
-class Controller {
+export class Controller {
   width = 600;
   height = 800;
   glyphSize = 48;
@@ -106,7 +106,7 @@ class Controller {
   }
 }
 
-class GameController extends Controller {
+export class GameController extends Controller {
   set score(value: number | null) {
     location.hash = value?.toString() ?? '';
   }
@@ -227,7 +227,7 @@ class GameController extends Controller {
   }
 }
 
-class MobileController {
+export class MobileController {
 
   constructor() {
     if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
@@ -253,7 +253,7 @@ class MobileController {
   }
 }
 
-class BulletinController {
+export class BulletinController {
   wrapper: HTMLDivElement;
   sections: HTMLElement[];
   constructor() {
