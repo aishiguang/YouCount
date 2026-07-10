@@ -1,4 +1,3 @@
-"use strict";
 const MINIMUM_SCORE = 5;
 const OVERLAP_THRESHOLD = 5;
 /**
@@ -14,7 +13,7 @@ function main() {
 /**
  * Controller class to manage the game.
  */
-class Controller {
+export class Controller {
     get glyph() {
         const candidates = ['☺️', '😀', '😆', '👍', '❤️', '🐦‍⬛', '🦍', '🦧', '🦜'];
         return candidates[Math.floor(Math.random() * candidates.length)];
@@ -90,7 +89,7 @@ class Controller {
         return false;
     }
 }
-class GameController extends Controller {
+export class GameController extends Controller {
     set score(value) {
         var _a;
         location.hash = (_a = value === null || value === void 0 ? void 0 : value.toString()) !== null && _a !== void 0 ? _a : '';
@@ -199,7 +198,7 @@ class GameController extends Controller {
         ].join('\n'));
     }
 }
-class MobileController {
+export class MobileController {
     constructor() {
         if (/Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             this.init();
@@ -222,7 +221,7 @@ class MobileController {
         }
     }
 }
-class BulletinController {
+export class BulletinController {
     constructor() {
         this.wrapper = document.getElementById('bulletin');
         this.sections = Array.from(this.wrapper.querySelectorAll('section'));
